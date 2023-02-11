@@ -1,25 +1,21 @@
+/*
 package App;
 
-import Config.JPAConfiguration;
+import config.JPAConfiguration;
 import Dao.BetalingenDao;
 import Dao.KlantenDao;
 import Dao.ReserveringenDao;
 import Dao.WerknemersDao;
-import DesignPatterns.BehavioralPattern.ChainOfResponsibility.*;
-import DesignPatterns.CreationalPattern.BuilderPattern.*;
-import DesignPatterns.StructuralPattern.AdapterPattern.*;
 import Entities.Betalingen;
-import Entities.Klanten;
 import Entities.Reserveringen;
 import Entities.Werknemers;
 
 import java.sql.Date;
-import java.time.DayOfWeek;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
-public class Application {
+public abstract class Application {
     public static void main(String[] args) {
 
         //scanner test
@@ -34,32 +30,41 @@ public class Application {
         //select All
         //List<Klanten> klantenList = klantenDAO.retrieveKlantenList();
         //klantenList.stream().forEach(System.out::println);
-    /*for(Klanten klanten : klantenList){
+    */
+/*for(Klanten klanten : klantenList){
       System.out.println(klanten);
-    }*/
+    }*//*
+
 
         //Insert
-        /*Klanten klanten = Klanten.builder().familienaam("Tom").voornaam("Jerry").adres("Gravenstraat 5").distrikt("Paramaribo").land("Suriname").telefoonnummer(887785).klantnummer("K20020007").build();
+        */
+/*Klanten klanten = Klanten.builder().familienaam("Tom").voornaam("Jerry").adres("Gravenstraat 5").distrikt("Paramaribo").land("Suriname").telefoonnummer(887785).klantnummer("K20020007").build();
         Klanten savedKlanten = klantenDAO.insert(klanten);
-        System.out.println(savedKlanten);*/
+        System.out.println(savedKlanten);*//*
+
 
 
         //Update find by familienaam en telefoonnummer
-        /*Klanten foundKlanten = klantenDAO.findByFamilienaamTelefoonnummer("Tom", 887785);
+        */
+/*Klanten foundKlanten = klantenDAO.findByFamilienaamTelefoonnummer("Tom", 887785);
         foundKlanten.setAdres("Gravenstraat 6");
         int updatedRecords = klantenDAO.updateKlanten(foundKlanten);
         System.out.println(updatedRecords);
-        System.out.println(foundKlanten);*/
+        System.out.println(foundKlanten);*//*
+
 
         //Update find by klantnummer
-        /*Klanten foundklanten = klantenDAO.findByKlantnummer("K20220001");
+        */
+/*Klanten foundklanten = klantenDAO.findByKlantnummer("K20220001");
         foundklanten.setAdres("Domineestraat 25");
         int updatedRedcords = klantenDAO.updateKlanten(foundklanten);
         System.out.println(updatedRedcords);
-        System.out.println(foundklanten);*/
+        System.out.println(foundklanten);*//*
+
 
         //Delete find by klantnummer
-        /*System.out.println("Bent u zeker dat u alle klant data wilt verwijderen?");
+        */
+/*System.out.println("Bent u zeker dat u alle klant data wilt verwijderen?");
         String yesno = YesNo.next();
 
         if (yesno.equals("ja")){
@@ -72,12 +77,14 @@ public class Application {
         }else if (yesno.equals("nee")){
             System.out.println("Verwijderings process gestopt");
         }
-        JPAConfiguration.shutdown();*/
+        JPAConfiguration.shutdown();*//*
+
 
 
 
         //Builder
-        /*HotelEmployee hotelEmployee = new HotelEmployee();
+        */
+/*HotelEmployee hotelEmployee = new HotelEmployee();
         System.out.println("Hotelmedewerker: Welke kamer zou u willen hebben?");
         KamerBuilder budgetKamer = new BudgetKamer();
         KamerBuilder economieKamer = new EconomyKamer();
@@ -99,19 +106,23 @@ public class Application {
         hotelEmployee.constructKamer();
         Kamer kamer3 = hotelEmployee.getKamer();
         System.out.println("\n Hier is uw kamer mevrouw Romanoff: \n- Comfort:" + kamer3.getComfort() +
-                "\n- Features: " + kamer3.getFeatures());*/
+                "\n- Features: " + kamer3.getFeatures());*//*
+
 
         //ChainOfResponsibility
 
-        /*Database database = new Database();
+        */
+/*Database database = new Database();
         Handler handler = new ReservationExistHandler(database)
                 .setNextHandler(new ValidDateHandler(database))
                 .setNextHandler((new ReservationCheckHandler()));
         AuthenticationServices service = new AuthenticationServices(handler);
-        service.CheckReservation("Stark Tony", "01-03-2022");*/
+        service.CheckReservation("Stark Tony", "01-03-2022");*//*
+
 
         //Adapter
-        /*List<DesignPatterns.StructuralPattern.AdapterPattern.Werknemers> werknemersList = getAllWerknemers();
+        */
+/*List<DesignPatterns.StructuralPattern.AdapterPattern.Werknemers> werknemersList = getAllWerknemers();
         System.out.println(werknemersList);
     }
         private static List<DesignPatterns.StructuralPattern.AdapterPattern.Werknemers> getAllWerknemers()
@@ -140,7 +151,8 @@ public class Application {
                     "Wilhelminastraat 7",
                     8678784);
             allWerknemers.add(new HotelNoordWerknemersAdapter(hotelNoordWerknemers));
-            return allWerknemers;*/
+            return allWerknemers;*//*
+
         //Rapportage
         System.out.println("Rapportage aantal betalingen in het jaar 2022");
         List<Betalingen> betalingenList = betalingenDao.getBetalingRapportage(Date.valueOf("2022-01-01"), Date.valueOf("2022-12-31"));
@@ -149,4 +161,7 @@ public class Application {
         System.out.println("\n" + "Aantal werknemers aangenomen 2019");
         List<Werknemers> werknemersList = werknemersDao.getWerknemersRapportage(Date.valueOf("2019-01-01"), Date.valueOf("2019-12-31"));
     }
+
+    public abstract Map<String, Object> getProperties();
 }
+*/
